@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b7horag5y1fts"]
+
+[ext_resource type="Texture2D" uid="uid://kyhp2t4hon28" path="res://dvd-logo-png-transparent-354656764.png" id="1_mehiu"]
+[ext_resource type="Script" uid="uid://cgpoaokkawsql" path="res://MySprite2D.gd" id="2_lt4yx"]
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1662075062]
+position = Vector2(341, 223)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_mehiu")
+script = ExtResource("2_lt4yx")
