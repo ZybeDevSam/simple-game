@@ -1,26 +1,15 @@
-extends Sprite2D
+extends CharacterBody2D
 
-var speed = 600
+@export var speed := 600
 var angular_speed = PI
 
+func _ready():
+	position = Vector2(100, 300)
+
 func _process(delta):
-    # var velocity = Vector2.UP.rotated(rotation) * speed
+	
+	var direction = Input.get_vector("left","right","up","down")
+	
+	position += direction * speed * delta
 
-    # position += velocity * delta
-    
-    var direction = 0
-    if Input.is_action_pressed("ui_left"):
-        direction = -1
-    if Input.is_action_pressed("ui_right"):
-        direction = 1
-
-    rotation += angular_speed * direction * delta
-    
-
-    var velocity = Vector2.ZERO
-    if Input.is_action_pressed("ui_up"):
-        velocity = Vector2.UP.rotated(rotation) *speed
-    if Input.is_action_pressed("ui_down"):
-        velocity = Vector2.DOWN.rotated(rotation) * speed
-    
-    position += velocity * delta
+	move_and_slide()

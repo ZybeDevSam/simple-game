@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bbhfiv2pfo3yo"]
+
+[ext_resource type="PackedScene" uid="uid://b7horag5y1fts" path="res://sprite_2d.tscn" id="1_bexhn"]
+[ext_resource type="PackedScene" uid="uid://d1hmtifj6jq7u" path="res://meteor.tscn" id="2_2nifc"]
+[ext_resource type="Texture2D" uid="uid://d14gpeyymjntq" path="res://Backgrounds/darkPurple.png" id="2_t7iv1"]
+[ext_resource type="Script" uid="uid://be3r032cekjrx" path="res://timer.gd" id="4_wkftn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nifc"]
+size = Vector2(20, 680)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkftn"]
+size = Vector2(1152, 16)
+
+[node name="Level" type="Node2D" unique_id=1603219706]
+
+[node name="BackGround" type="Sprite2D" parent="." unique_id=1970169395]
+position = Vector2(592, 332)
+scale = Vector2(5, 5)
+texture = ExtResource("2_t7iv1")
+
+[node name="Player" parent="." unique_id=1932177022 instance=ExtResource("1_bexhn")]
+position = Vector2(578, 332)
+
+[node name="Meteor" parent="." unique_id=1496315524 instance=ExtResource("2_2nifc")]
+position = Vector2(503, 195)
+
+[node name="Boarders" type="Node2D" parent="." unique_id=312387855]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Boarders" unique_id=1192450641]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boarders/StaticBody2D" unique_id=1240321634]
+position = Vector2(1162, 323)
+shape = SubResource("RectangleShape2D_2nifc")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Boarders" unique_id=1792477518]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boarders/StaticBody2D2" unique_id=234318023]
+position = Vector2(-10, 328)
+shape = SubResource("RectangleShape2D_2nifc")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Boarders" unique_id=1862227472]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boarders/StaticBody2D3" unique_id=332015311]
+position = Vector2(576, -8)
+shape = SubResource("RectangleShape2D_wkftn")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Boarders" unique_id=652696732]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boarders/StaticBody2D4" unique_id=1374717944]
+position = Vector2(577, 656)
+shape = SubResource("RectangleShape2D_wkftn")
+
+[node name="Timer" type="Timer" parent="." unique_id=1207127274]
+autostart = true
+script = ExtResource("4_wkftn")
+
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

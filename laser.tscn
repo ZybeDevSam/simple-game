@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bopfunr6g4ypb"]
+
+[ext_resource type="Texture2D" uid="uid://sht6a0u0dyyl" path="res://PNG/Lasers/laserBlue07.png" id="1_fn5yt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vqwg"]
+size = Vector2(8, 34)
+
+[node name="Laser" type="Area2D" unique_id=17088353]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=80934356]
+texture = ExtResource("1_fn5yt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1978327409]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_6vqwg")

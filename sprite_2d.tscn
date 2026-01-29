@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://b7horag5y1fts"]
 
-[ext_resource type="Texture2D" uid="uid://kyhp2t4hon28" path="res://dvd-logo-png-transparent-354656764.png" id="1_mehiu"]
 [ext_resource type="Script" uid="uid://cgpoaokkawsql" path="res://MySprite2D.gd" id="2_lt4yx"]
+[ext_resource type="Texture2D" uid="uid://bdaofq4ps4w6i" path="res://PNG/playerShip2_blue.png" id="2_mehiu"]
 
-[node name="Sprite2D" type="Sprite2D" unique_id=1662075062]
-position = Vector2(341, 223)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_mehiu")
+[node name="Player" type="CharacterBody2D" unique_id=502431691]
 script = ExtResource("2_lt4yx")
+
+[node name="PlayerImage" type="Sprite2D" parent="." unique_id=2136792449]
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_mehiu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1068386212]
+polygon = PackedVector2Array(5, -37, 13, -20, 18, -15, 69, 6, 47, 34, 20, 29, 15, 37, -16, 37, -21, 29, -47, 34, -69, 7, -19, -15, -13, -19, -5, -37)
