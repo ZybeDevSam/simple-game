@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c0f8ciiepfbeh" path="res://PNG/Effects/star1.png" id="4_m3clv"]
 [ext_resource type="Script" uid="uid://be3r032cekjrx" path="res://level.gd" id="4_wkftn"]
 [ext_resource type="Texture2D" uid="uid://5b2ulod4srxd" path="res://PNG/Effects/star2.png" id="5_mxnmf"]
+[ext_resource type="PackedScene" uid="uid://blh48e7pvrbxn" path="res://ui.tscn" id="6_m3clv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2nifc"]
 animations = [{
@@ -33,8 +34,10 @@ script = ExtResource("4_wkftn")
 position = Vector2(633.49994, 377.50003)
 scale = Vector2(5.3242183, 5.3554688)
 texture = ExtResource("2_t7iv1")
+metadata/_edit_lock_ = true
 
 [node name="Stars" type="Node2D" parent="." unique_id=255768166]
+metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stars" unique_id=1511634786]
 sprite_frames = SubResource("SpriteFrames_2nifc")
@@ -118,6 +121,7 @@ frame_progress = 0.05574788
 position = Vector2(576, 332)
 
 [node name="Boarders" type="Node2D" parent="." unique_id=312387855]
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Boarders" unique_id=1192450641]
 collision_layer = 4
@@ -152,8 +156,12 @@ wait_time = 0.25
 autostart = true
 
 [node name="Meteors" type="Node2D" parent="." unique_id=475343160]
+metadata/_edit_lock_ = true
 
 [node name="Laser" type="Node2D" parent="." unique_id=460742825]
+metadata/_edit_lock_ = true
+
+[node name="UI" parent="." unique_id=2029816123 instance=ExtResource("6_m3clv")]
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]

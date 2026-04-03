@@ -14,10 +14,18 @@ config/name="SimpleGame"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*uid://b0112ikxplqcx"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+
+[global_group]
+
+UI=""
 
 [input]
 

@@ -4,6 +4,8 @@ var meteor_speed : int
 var meteor_direction: float
 var meteor_rotation: int
 
+signal collision
+
 func _ready():
 	var rng := RandomNumberGenerator.new()
 	
@@ -22,14 +24,18 @@ func _ready():
 
 	meteor_rotation = rng.randi_range(0,359)
 
-	await get_tree().create_timer(10.0).timeout
-	queue_free()
+	# await get_tree().create_timer(10.0).timeout
+	# queue_free()
 
 
 func _process(delta):
 	position += Vector2(meteor_direction,1.0) * meteor_speed * delta
 	rotation_degrees += meteor_rotation * delta
 
-func _on_body_entered(body: Node2D) -> void:
-	print("meteor entered")
-	print(body)
+func _on_body_entered(_body: Node2D) -> void:
+	collision.emit()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	area.queue_free()
+	queue_free()
